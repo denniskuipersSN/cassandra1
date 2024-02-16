@@ -166,7 +166,8 @@ namespace cartservice.cartstore
               DisplayName = activity.DisplayName;           
             }
             Console.Out.WriteLine("mySlowFunction took : " + durationSec.ToString());
-            if (durationSec >= 2 && veryslow)
+            _logger.LogError(DateTime.Now.ToString() + " mySlowFunction took " + durationSec.ToString() + " seconds" );
+            if (durationSec >= 1 && veryslow)
                 _logger.LogError(DateTime.Now.ToString() + " Fatale Error in Span " + DisplayName + " took " + durationSec.ToString() + " seconds" );
             else
                 _logger.LogInformation(DateTime.Now.ToString() + " Info : Span " + DisplayName + " took " + durationSec.ToString() + " seconds" );
@@ -192,7 +193,7 @@ namespace cartservice.cartstore
                total = 2508;
                
             }
-            //mySlowFunction(total,makeitverslow);
+            mySlowFunction(total,makeitverslow);
 
             if(DiffMin >= 15 && (DiffMin + 10) >= 35)
             {
