@@ -176,7 +176,7 @@ namespace cartservice.cartstore
         public async Task AddItemAsync(string userId, string productId, int quantity)
         {
             Console.WriteLine($"AddItemAsync called with userId={userId}, productId={productId}, quantity={quantity}");
-
+            //_logger.LogInformation($"AddItemAsync called with userId={userId}, productId={productId}, quantity={quantity}");
             float total = 150*quantity;
             Boolean makeitverslow = false;
             DateTime current_date = DateTime.Now;
@@ -193,7 +193,7 @@ namespace cartservice.cartstore
                total = 2508;
                
             }
-            //mySlowFunction(total,makeitverslow);
+            mySlowFunction(total,makeitverslow);
 
             if(DiffMin >= 15 && (DiffMin + 10) >= 35)
             {
